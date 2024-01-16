@@ -1,11 +1,15 @@
 export class AddPlan {
 
     addPlans(name2) {
-        
-        cy.get('.divide-y > :nth-child(1) > .relative')
+
+        cy.get('.divide-y > :nth-child(1) > .relative').then( container =>{
+            cy.wrap(container).contains('Planes').should("contain", "Planes").click()
+        })
+        cy.get('.mt-4 > .block').should("be.visible").click()
+     /*    cy.get('.divide-y > :nth-child(1) > .relative').
         cy.get('[href="https://main.q-detect.com/clients/54/plans?page=1"]').click({force: true})
         cy.get('.mt-4 > .block').should("be.visible").click({force: true})
-    /*     cy.get("[type='text']").first().should("be.visible").type(name2,email5,namex,lastx,slastx)
+        cy.get("[type='text']").first().should("be.visible").type(name2,email5,namex,lastx,slastx)
         cy.get('#email').should('be.visible').type(email5)
         cy.get('#email_confirmation').should('be.visible').type(email5)
             cy.wait(time)
