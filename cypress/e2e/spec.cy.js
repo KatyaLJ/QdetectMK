@@ -1,14 +1,9 @@
 const { onLoginPage } = require('../support/page_object/logIn');
 const { onAddClient } = require('../support/page_object/addClient');
 
-const dataLogin = require ('../e2e/data.json');
-//const testData = cy.fixture('../fixtures/testData.json').as('testData')
-/* let firstname = clients.name;
-const lastname = clients.lastname;
-const lastName = clients.lastName;
-const email = clients.email
-const email2 = clients.email
-const company = clients.company */
+const dataLogin = require ('../e2e/data.json'); //datos del json para login
+const { onAddPlan } = require('../support/page_object/addPlan');
+
 
 
 describe('Test with Page Objects', ( ) =>{
@@ -22,23 +17,24 @@ describe('Test with Page Objects', ( ) =>{
   cy.openHomePage()
   })
 
-  it('Sign In', () =>{
+  it('Log In & New Clients', () =>{
        
     onLoginPage.login(dataLogin.username, dataLogin.password)
-
-    testData.forEach((data) => {
+    
+      testData.forEach((data) => {
       const constName = data.name;
       const constlastname = data.lastname;
       const constlastName = data.lastName;
       const constEmail = data.email;
       const constEmail2 = data.email;
-      const constCompany = data.company;
+      const constCompany = "WATRO";
+      const username = (constName+constCompany+'1')
 
-      // Realizar acciones con los datos
-      onAddClient.addClients(constName, constlastname, constlastName, constEmail2, constEmail, constCompany);
+    onAddClient.addClients(constName, constlastname, constlastName, constEmail2, constEmail, constCompany);
+    onAddPlan.addPlans()
     });
   });
-    //onAddClient.addClients(constName, lastname, lastName, email, email2, company, 2000)
+
 
 
   } )
