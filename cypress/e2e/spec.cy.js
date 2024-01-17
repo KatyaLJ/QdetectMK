@@ -28,10 +28,10 @@ describe('Test with Page Objects', ( ) =>{
       const constEmail = data.email;
       const constEmail2 = data.email;
       const constCompany = "WATRO";
-      const username = (constName+constCompany+'1')
+      const username = (constlastname+constCompany+'1')
 
     onAddClient.addClients(constName, constlastname, constlastName, constEmail2, constEmail, constCompany);
-    onAddPlan.addPlans()
+    onAddPlan.addPlans(username, constEmail, constEmail2, constName, constlastname, constlastName)
     });
   });
 
