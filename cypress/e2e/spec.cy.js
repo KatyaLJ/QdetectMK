@@ -3,6 +3,7 @@ const { onAddClient } = require('../support/page_object/addClient');
 
 const dataLogin = require ('../e2e/data.json'); //datos del json para login
 const { onAddPlan } = require('../support/page_object/addPlan');
+const { onDeleteClient } = require('../support/page_object/deleteClient');
 
 
 
@@ -32,6 +33,7 @@ describe('Test with Page Objects', ( ) =>{
 
     onAddClient.addClients(constName, constlastname, constlastName, constEmail2, constEmail, constCompany);
     onAddPlan.addPlans(username, constEmail, constEmail2, constName, constlastname, constlastName)
+    onDeleteClient.deleteClient()
     });
   });
 
