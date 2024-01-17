@@ -21,13 +21,11 @@ export class AddPlan {
         cy.get("[type='checkbox']").eq(6).should('not.be.checked')
           for(let j=7;j<=59;j++){
         cy.get("[type='checkbox']").eq(j).should('be.checked')}
-        cy.get("[type='submit']").first().should("contain", "Guardar").click()
-        /* cy.get("[class='inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out']")
+        cy.get("[type='submit']").first().should("contain", "Guardar").click({force: true})
+       /*  cy.get("[class='inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out']")
         .then( navbar =>{
-            cy.wrap(navbar).contains('Clientes').should("contain", "Clientes").click() 
-        }
-        
-        )*/
+            cy.wrap(navbar).contains('Clientes').click({force: true}) 
+        }) */
       }
     }
     
